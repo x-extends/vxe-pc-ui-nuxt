@@ -1,0 +1,55 @@
+{
+  "name": "vxe-pc-ui-nuxt",
+  "version": "1.0.0",
+  "description": "Vxe UI module for Nuxt",
+  "type": "module",
+  "scripts": {
+    "update": "npm install --legacy-peer-deps",
+    "dev": "nuxi dev playground",
+    "build": "nuxt-module-build build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "dependencies": {
+    "@nuxt/kit": "^4.2.2",
+    "magic-string": "^0.30.21",
+    "unplugin": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.2.2",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/node": "^25.0.10",
+    "vxe-pc-ui": "~4.14.24",
+    "eslint": "^8.57.1",
+    "nuxi": "^3.32.0",
+    "nuxt": "^4.2.2",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.27"
+  },
+  "keywords": [
+    "vxe-ui",
+    "vxe-pc-ui",
+    "nuxt"
+  ],
+  "homepage": "https://github.com/x-extends/vxe-pc-ui-nuxt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-extends/vxe-pc-ui-nuxt.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/x-extends/vxe-pc-ui-nuxt/issues"
+  }
+}
