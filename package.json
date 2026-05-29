@@ -1,6 +1,6 @@
 {
   "name": "vxe-pc-ui-nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vxe UI module for Nuxt",
   "type": "module",
   "scripts": {
