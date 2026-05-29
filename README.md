@@ -27,9 +27,6 @@ npm install vxe-pc-ui-nuxt -D
 
 ## Configuration
 
-> [!WARNING]
-> At present, the method cannot automatically obtain the context, and you need to manually configure [installMethods](#installmethods) in the options.
-
 ```ts
 export default defineNuxtConfig({
   modules: [
