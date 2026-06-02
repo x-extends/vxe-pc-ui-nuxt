@@ -29,7 +29,9 @@ export default defineNuxtConfig({
   modules: [
     'vxe-pc-ui-nuxt'
   ],
-  vxeBaseSetting: { /** Options */ }
+  vxeBaseSetting: {
+    // global: false // 是否按需加载
+  }
 })
 ```
 
