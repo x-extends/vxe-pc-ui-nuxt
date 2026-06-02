@@ -93,6 +93,6 @@ Reference [Nuxt documentation](https://nuxt.com/docs/guide/directory-structure/c
 
 ## Development
 
-- Run `npm run update i` to install the dependencies.
+- Run `npm run update` to install the dependencies.
 - Run `npm run run` to start playground in development mode.
 - Run `npm run build` to build this project.
