@@ -1,6 +1,18 @@
-import { defineNuxtModule, addPlugin, createResolver, addComponent } from '@nuxt/kit'
-import { libraryName, configKey } from './config'
+import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
+import { libraryName, configKey, allComponents } from './config'
 import { ModuleOptions } from './types'
+
+function kebabCase (str: string): string {
+  return str
+    // 1. 将驼峰（camelCase / PascalCase）拆分为单词
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    // 2. 将下划线、空格、连续连字符等统一替换为连字符
+    .replace(/[\s_]+/g, '-')
+    // 3. 移除首尾连字符
+    .replace(/^-+|-+$/g, '')
+    // 4. 转换为小写
+    .toLowerCase()
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -32,15 +44,23 @@ export default defineNuxtModule<ModuleOptions>({
     if (opts.global) {
       // 如果全局使用，组件将在 plugin 中统一注册
       // 这里无需额外操作
-    } else if (opts.components && opts.components.length > 0) {
-      // 按需引入模式：为每个组件添加自动导入
-      for (const componentName of opts.components) {
-        addComponent({
-          name: componentName,
-          export: componentName,
-          filePath: libraryName
-        })
-      }
+    } else {
+      nuxt.hook('components:extend', (components) => {
+        for (const compName of allComponents) {
+          const dirName = kebabCase(compName)
+          components.push({
+            filePath: libraryName,
+            export: compName,
+            global: false,
+            chunkName: dirName,
+            pascalName: compName,
+            kebabName: dirName,
+            shortPath: libraryName,
+            prefetch: false,
+            preload: false
+          })
+        }
+      })
     }
   }
 })
